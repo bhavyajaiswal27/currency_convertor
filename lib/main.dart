@@ -13,12 +13,44 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
     );
   }
 }
 
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Currency Convertor', style: TextStyle(color: Colors.cyan),),
+    ),
+    body: Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            SearchBar(
+              hintText: "Currency 1",
+              onSubmitted: (value) {
+                
+              },
+            )
+          ],
+        )
+      ],
+    ),
+    );
+  }
+}
